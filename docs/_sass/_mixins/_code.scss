@@ -1,0 +1,8 @@
+@mixin code-color($color-code) {
+  color: $color-code;
+}
+
+@mixin code-color-font($color-code) {
+  color: $color-code;
+  font-weight: bold;
+}

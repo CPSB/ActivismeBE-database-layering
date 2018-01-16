@@ -35,7 +35,7 @@ class RepositoryProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         // Config path.
         $config_path = __DIR__ . '/../../../../config/repositories.php';
@@ -49,7 +49,7 @@ class RepositoryProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         // Register bindings.
         $this->registerBindings();
@@ -75,23 +75,23 @@ class RepositoryProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerBindings()
+    protected function registerBindings(): void
     {
         // FileSystem.
         $this->app->instance('FileSystem', new Filesystem());
 
         // Composer.
-        $this->app->bind('Composer', function ($app) {
+        $this->app->bind('Composer', function ($app): Composer {
             return new Composer($app['FileSystem']);
         });
 
         // Repository creator.
-        $this->app->singleton('RepositoryCreator', function ($app) {
+        $this->app->singleton('RepositoryCreator', function ($app): RepositoryCreator {
             return new RepositoryCreator($app['FileSystem']);
         });
 
         // Criteria creator.
-        $this->app->singleton('CriteriaCreator', function ($app) {
+        $this->app->singleton('CriteriaCreator', function ($app); CriteriaCreator {
             return new CriteriaCreator($app['FileSystem']);
         });
     }
@@ -101,10 +101,10 @@ class RepositoryProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerMakeRepositoryCommand()
+    protected function registerMakeRepositoryCommand(): void
     {
         // Make repository command.
-        $this->app->singleton('command.repository.make', function ($app) {
+        $this->app->singleton('command.repository.make', function ($app): MakeRepositoryCommand {
             return new MakeRepositoryCommand($app['RepositoryCreator'], $app['Composer']);
         });
     }
@@ -114,10 +114,10 @@ class RepositoryProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function registerMakeCriteriaCommand()
+    protected function registerMakeCriteriaCommand(): void
     {
         // Make criteria command.
-        $this->app->singleton('command.criteria.make', function ($app) {
+        $this->app->singleton('command.criteria.make', function ($app): MakeCriteriaCommand {
             return new MakeCriteriaCommand($app['CriteriaCreator'], $app['Composer']);
         });
     }
@@ -127,7 +127,7 @@ class RepositoryProvider extends ServiceProvider
      *
      * @return array
      */
-    public function provides()
+    public function provides(): array
     {
         return ['command.repository.make', 'command.criteria.make'];
     }

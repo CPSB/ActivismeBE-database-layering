@@ -366,9 +366,9 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
     /**
      * Search for matching values in some specific attribute.
      *
-     * @param string $attribute The name from the attribute.
-     * @param array $values The array of matching values
-     * @param  array$columns The columns u want to display
+     * @param  string $attribute The name from the attribute.
+     * @param  array  $values The array of matching values
+     * @param  array  $columns The columns u want to display
      * @return mixed
      */
     public function whereIn($attribute, array $values, $columns = ['*'])

@@ -84,7 +84,7 @@ class MakeCriteriaCommand extends Command
      *
      * @return array
      */
-    protected function getArguments()
+    protected function getArguments(): array
     {
         return [['criteria', InputArgument::REQUIRED, 'The criteria name.']];
     }
@@ -94,7 +94,7 @@ class MakeCriteriaCommand extends Command
      *
      * @return array
      */
-    protected function getOptions()
+    protected function getOptions(): array
     {
         return [['model', null, InputOption::VALUE_OPTIONAL, 'The model name.', null]];
     }

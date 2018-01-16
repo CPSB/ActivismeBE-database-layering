@@ -18,7 +18,10 @@ class CriteriaCreator
     protected $model;       /** @var Model      */
 
     /**
-     * @param Filesystem $files
+     * CriteriaCreator constructor 
+     * 
+     * @param  Filesystem $files
+     * @return void
      */
     public function __construct(Filesystem $files)
     {

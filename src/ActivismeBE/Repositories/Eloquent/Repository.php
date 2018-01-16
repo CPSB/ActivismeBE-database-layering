@@ -460,8 +460,7 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
     /**
      * Push new query criteria in the interface call.
      *
-     * @param Criteria $criteria The Criteria instance u want to apply.
-     *
+     * @param  Criteria $criteria The Criteria instance u want to apply.
      * @return $this
      */
     public function pushCriteria(Criteria $criteria)
@@ -490,11 +489,13 @@ abstract class Repository implements RepositoryInterface, CriteriaInterface
         if ($this->skipCriteria === true) {
             return $this;
         }
+
         foreach ($this->getCriteria() as $criteria) {
             if ($criteria instanceof Criteria) {
                 $this->model = $criteria->apply($this->model, $this);
             }
         }
+
         return $this;
     }
 }

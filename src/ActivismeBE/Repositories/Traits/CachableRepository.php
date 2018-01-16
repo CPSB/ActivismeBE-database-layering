@@ -86,7 +86,7 @@ trait CachableRepository
             return false;
         }
 
-        $cacheOnly   = isset($this->cacheOnly) ? $this->cacheOnly : config('repositories.cache.aloowed.only', null);
+        $cacheOnly   = isset($this->cacheOnly)   ? $this->cacheOnly   : config('repositories.cache.aloowed.only', null);
         $cacheExcept = isset($this->cacheExcept) ? $this->cacheExcept : config('repositories.cache.allowed.except', null);
 
         if (is_array($cacheOnly)) {

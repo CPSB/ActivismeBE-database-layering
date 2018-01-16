@@ -63,12 +63,11 @@ class CriteriaCreator
     /**
      * Create the criteria.
      *
-     * @param $criteria
-     * @param $model
-     *
+     * @param  $criteria
+     * @param  $model
      * @return int
      */
-    public function create($criteria, $model)
+    public function create($criteria, $model): int
     {
         $this->setCriteria($criteria);  // Set the criteria.
         $this->setModel($model);        // Set the model.
@@ -80,7 +79,7 @@ class CriteriaCreator
     /**
      * Create the criteria directory.
      */
-    public function createDirectory()
+    public function createDirectory(): void
     {
         // Directory
         $directory = $this->getDirectory();
@@ -95,7 +94,7 @@ class CriteriaCreator
      *
      * @return string
      */
-    public function getDirectory()
+    public function getDirectory(): string
     {
         $model = $this->getModel();                             // Model
         $directory = Config::get('repositories.criteria_path'); // Get the criteria path from the config file.
@@ -137,7 +136,7 @@ class CriteriaCreator
      *
      * @return string
      */
-    protected function getPath()
+    protected function getPath(): string 
     {
         return $this->getDirectory() . DIRECTORY_SEPARATOR . $this->getCriteria() . '.php'; // Return the path.
     }
@@ -148,7 +147,7 @@ class CriteriaCreator
      * @return string
      * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
-    protected function getStub()
+    protected function getStub(): string
     {
         return $this->files->get($this->getStubPath() . "criteria.stub"); // Return the stub.
     }
@@ -188,7 +187,7 @@ class CriteriaCreator
      *
      * @return int
      */
-    protected function createClass()
+    protected function createClass(): int
     {
         $result = $this->files->put($this->getPath(), $this->populateStub()); // Result.
 
@@ -200,7 +199,7 @@ class CriteriaCreator
      *
      * @return string
      */
-    protected function pluralizeModel()
+    protected function pluralizeModel(): string
     {
         $pluralized = Inflector::pluralize($this->getModel());      // Pluralized
         $model_name = ucfirst($pluralized);                         // Uppercase first character the modelname

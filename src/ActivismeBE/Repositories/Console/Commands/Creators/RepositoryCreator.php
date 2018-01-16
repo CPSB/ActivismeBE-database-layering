@@ -189,13 +189,10 @@ class RepositoryCreator
      *
      * @return string
      */
-    protected function getStubPath()
+    protected function getStubPath(): string
     {
-        // TODO: Check if we can refactor this method.
-        // Stub path.
-        $stub_path = __DIR__ . '/../../../../../../resources/stubs/';
-        // Return the stub path.
-        return $stub_path;
+        $stub_path = __DIR__ . '/../../../../../../resources/stubs/';   // Stub path.
+        return $stub_path;                                              // Return the stub path.
     }
 
     /**
@@ -220,7 +217,7 @@ class RepositoryCreator
      *
      * @return void
      */
-    protected function createClass()
+    protected function createClass(): void
     {
         return $this->files->put($this->getPath(), $this->populateStub()); // Return the result.
     }

@@ -222,7 +222,7 @@ trait CachableRepository
     /**
      * Find data by id
      *
-     * @param        $id
+     * @param  int   $id
      * @param  array $columns
      * @return mixed
      */
@@ -243,9 +243,9 @@ trait CachableRepository
     /**
      * Find data by field and value
      *
-     * @param        $field
-     * @param        $value
-     * @param  array $columns
+     * @param  string $field
+     * @param  string $value
+     * @param  array  $columns
      * @return mixed
      */
     public function findByField($field, $value = null, $columns = ['*'])

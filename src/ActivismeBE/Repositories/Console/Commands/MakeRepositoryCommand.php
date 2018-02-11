@@ -64,10 +64,11 @@ class MakeRepositoryCommand extends Command
     }
 
     /**
-     * @param $arguments
-     * @param $options
+     * @param  $arguments
+     * @param  $options
+     * @return void
      */
-    protected function writeRepository($arguments, $options)
+    protected function writeRepository($arguments, $options): void
     {
         $repository = $arguments['repository'];     // Set repository.
         $model      = $options['model'];            // Set model.
@@ -82,7 +83,7 @@ class MakeRepositoryCommand extends Command
     *
     * @return array
     */
-    protected function getArguments()
+    protected function getArguments(): array
     {
         return [['repository', InputArgument::REQUIRED, 'The repository name.']];
     }
@@ -92,7 +93,7 @@ class MakeRepositoryCommand extends Command
      *
      * @return array
      */
-    protected function getOptions()
+    protected function getOptions(): array 
     {
         return [['model', null, InputOption::VALUE_OPTIONAL, 'The model name.', null]];
     }
